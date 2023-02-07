@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #2a7cc9;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #0f2c47;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #46484a;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #46484a;
+}
+
+main {
+  background-color: #0f2c47;
+  padding-bottom: 80px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  background-color: white;
+  width: 6px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.timeline {
+  width: 400px;
+  text-align: left;
+  position: relative;
+  padding: 12px 18px;
+  top: 35px;
+  border-radius: 10px;
+  background-color: #39eaed;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+li::after {
+  background: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: -10px;
+  z-index: 1;
+  transition: background-color .5s ease-in-out;
+}
+
+li:nth-child(odd) div {
+  left: 50px;
+  transform: translate3d(200px, 0, 0);
+}
+
+li:nth-child(even) div {
+  left: -482px;
+  transform: translate3d(-200px, 0, 0);
+}
+
+li:nth-child(odd) div::before {
+  content: "";
+  position: absolute;
+  border-width: 12px 20px 12px 0;
+  border-color: transparent #aed3f5 transparent transparent;
+  height: 0;
+  width: 0;
+  bottom: 10px;
+  left: -18px;
+  border-style: solid;
+}
+
+li:nth-child(even) div::before {
+  content: "";
+  position: absolute;
+  border-width: 12px 0 12px 20px;
+  border-color: transparent transparent transparent #aed3f5;
+  height: 0;
+  width: 0;
+  bottom: 10px;
+  left: 434px;
+  border-style: solid;
+}
+
+li.in-view::after {
+  background-color: #aed3f5;
+}
+
+li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+@media screen and (max-width: 1075px) {
+  .timeline {
+    width: 300px;
+  }
+
+  li:nth-child(even) div {
+    left: -382px;
+  }
+
+  li:nth-child(even) div::before {
+    left: 334px;
+  }
+}
